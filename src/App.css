@@ -24,6 +24,10 @@
   text-align: left;
 }
 
+input[type="text"] {
+  margin-top: 20px;
+}
+
 input {
   font-size: 20px
 }
@@ -34,6 +38,7 @@ ul {
 
 li {
   list-style-type: none;
+  margin-bottom: 5px;
 }
 
 @keyframes App-logo-spin {
