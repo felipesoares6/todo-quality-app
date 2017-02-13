@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 import List from './components/List';
-import { addTodo, generateId } from './lib/helpers';
+import { addTodo, generateId, findById, toggleTodo, updateTodo } from './lib/helpers';
 
 class App extends Component {
   state = {
@@ -14,6 +14,17 @@ class App extends Component {
       {id: 4, name: 'top-list-4', isComplete: false}
     ],
     currentTodo: ''
+  }
+
+  handleToggle = (id) => {
+    const todo = findById(id, this.state.todos);
+    const toggled = toggleTodo(todo);
+
+    const updatedTodos = updateTodo(this.state.todos, toggled);
+
+    this.setState({
+      todos: updatedTodos
+    })
   }
 
   handleInputChange = (evt) => {
@@ -59,7 +70,7 @@ class App extends Component {
           <Form handleInputChange={this.handleInputChange}
              currentTodo={this.state.currentTodo}
              handleSubmit={submitHandler} />
-          <List todos={this.state.todos} />
+          <List handleToggle={this.handleToggle} todos={this.state.todos} />
         </div>
       </div>
     );
