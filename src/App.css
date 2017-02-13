@@ -25,7 +25,7 @@
 }
 
 input[type="text"] {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 input {
@@ -39,6 +39,10 @@ ul {
 li {
   list-style-type: none;
   margin-bottom: 5px;
+}
+
+.error {
+  color:red;
 }
 
 @keyframes App-logo-spin {
