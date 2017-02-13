@@ -14,7 +14,8 @@ class App extends Component {
         {id: 2, name: 'top-list-2', isComplete: false},
         {id: 3, name: 'top-list-3', isComplete: false},
         {id: 4, name: 'top-list-4', isComplete: false}
-      ]
+      ],
+      currentTodo: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);

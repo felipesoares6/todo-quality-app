@@ -8,4 +8,9 @@ const Form = (props) => {
   )
 }
 
+Form.propTypes = {
+  currentTodo: React.PropTypes.string,
+  handleInputChange: React.PropTypes.func
+}
+
 export default Form;

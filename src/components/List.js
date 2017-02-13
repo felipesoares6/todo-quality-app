@@ -11,4 +11,8 @@ const List = (props) => {
   )
 }
 
+List.propTypes = {
+  todos: React.PropTypes.array.isRequired
+}
+
 export default List;
