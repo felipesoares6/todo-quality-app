@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 import List from './components/List';
+import Footer from './components/Footer';
 import { addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo } from './lib/helpers';
 import {pipe, partial} from './lib/utils';
 
@@ -78,6 +79,8 @@ class App extends Component {
              handleSubmit={submitHandler} />
           <List handleToggle={this.handleToggle} handleRemove={this.handleRemove} todos={this.state.todos} />
         </div>
+
+        <Footer/>
       </div>
     );
   }
