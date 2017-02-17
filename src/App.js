@@ -6,20 +6,21 @@ import List from './components/List';
 import Footer from './components/Footer';
 import { addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos } from './lib/helpers';
 import {pipe, partial} from './lib/utils';
+import loadTodos from './lib/todoService';
 
 class App extends Component {
   state = {
-    todos: [
-      {id: 1, name: 'top-list-1', isComplete: false},
-      {id: 2, name: 'top-list-2', isComplete: false},
-      {id: 3, name: 'top-list-3', isComplete: false},
-      {id: 4, name: 'top-list-4', isComplete: false}
-    ],
+    todos: [],
     currentTodo: ''
   }
 
   static contextTypes = {
     route: React.PropTypes.string
+  }
+
+  componentDidMount () {
+    loadTodos()
+      .then((todos) => this.setState({ todos }))
   }
 
   handleRemove = (id, evt) => {
