@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 const getCurrentPath = () => {
   const path = document.location.pathname
-
   return path.substring(path.lastIndexOf('/'))
 }
 
