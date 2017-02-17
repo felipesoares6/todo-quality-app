@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 import List from './components/List';
-import { addTodo, generateId, findById, toggleTodo, updateTodo } from './lib/helpers';
+import { addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo } from './lib/helpers';
 import {pipe, partial} from './lib/utils';
 
 class App extends Component {
@@ -15,6 +15,13 @@ class App extends Component {
       {id: 4, name: 'top-list-4', isComplete: false}
     ],
     currentTodo: ''
+  }
+
+  handleRemove = (id, evt) => {
+    evt.preventDefault()
+
+    const updateTodos = removeTodo(this.state.todos, id)
+    this.setState({ todos: updateTodos })
   }
 
   handleToggle = (id) => {
@@ -69,7 +76,7 @@ class App extends Component {
           <Form handleInputChange={this.handleInputChange}
              currentTodo={this.state.currentTodo}
              handleSubmit={submitHandler} />
-          <List handleToggle={this.handleToggle} todos={this.state.todos} />
+          <List handleToggle={this.handleToggle} handleRemove={this.handleRemove} todos={this.state.todos} />
         </div>
       </div>
     );

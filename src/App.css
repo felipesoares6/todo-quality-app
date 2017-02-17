@@ -41,9 +41,24 @@ li {
   margin-bottom: 5px;
 }
 
+li span.delete-item {
+  visibility: hidden;
+}
+
+span.delete-item a {
+  text-decoration: none;
+  color:red;
+}
+
+li:hover span.delete-item {
+  visibility: visible;
+}
+
 .error {
   color:red;
 }
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
