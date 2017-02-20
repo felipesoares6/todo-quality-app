@@ -18,12 +18,12 @@
     {
       "id": 4,
       "name": "Setup fetch",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 69226,
       "name": "eai",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 50666,
