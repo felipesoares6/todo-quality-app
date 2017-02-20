@@ -6,7 +6,7 @@ import List from './components/List';
 import Footer from './components/Footer';
 import { addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos } from './lib/helpers';
 import {pipe, partial} from './lib/utils';
-import {loadTodos, createTodo, saveTodo} from './lib/todoService';
+import {loadTodos, createTodo, saveTodo, destroyTodo} from './lib/todoService';
 
 class App extends Component {
   state = {
@@ -28,6 +28,9 @@ class App extends Component {
 
     const updateTodos = removeTodo(this.state.todos, id)
     this.setState({ todos: updateTodos })
+
+    destroyTodo(id)
+      .then(() => this.showTempMessage('Todo removed'))
   }
 
   handleToggle = (id) => {
